@@ -6,7 +6,6 @@
  * on the OpenShift platform.
  */
 
-const osToken = process.env.token
 const TOKEN = process.env.TELEGRAM_TOKEN || osToken;
 const TelegramBot = require('node-telegram-bot-api');
 // See https://developers.openshift.com/en/node-js-environment-variables.html
