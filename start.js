@@ -1,11 +1,11 @@
-//var TelegramBot = require('node-telegram-bot-api');
-//var token = '111:22:333';
-//var bot = new TelegramBot(token, { polling: true });
+var TelegramBot = require('node-telegram-bot-api');
+var token = process.env.TELEGRAM_TOKEN;
+var bot = new TelegramBot(token, { polling: true });
 /**
  * This example demonstrates setting up webhook
  * on the OpenShift platform.
  */
-
+/*
 const TOKEN = process.env.TELEGRAM_TOKEN;
 const TelegramBot = require('node-telegram-bot-api');
 // See https://developers.openshift.com/en/node-js-environment-variables.html
@@ -25,7 +25,7 @@ const bot = new TelegramBot(TOKEN, options);
 
 // This informs the Telegram servers of the new webhook.
 // Note: we do not need to pass in the cert, as it already provided
-bot.setWebHook(`${url}/bot${TOKEN}`);
+bot.setWebHook(`${url}/bot${TOKEN}`);*/
 
 var group_link = "t.me/StickerGroup"; // 群組連結
 
