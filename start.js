@@ -19,7 +19,7 @@ const options = {
 };
 // OpenShift routes from port :443 to OPENSHIFT_NODEJS_PORT
 const domain = process.env.OPENSHIFT_APP_DNS;
-const url = `${domain}:8080`;
+const url = `${domain}:443`;
 const bot = new TelegramBot(TOKEN, options);
 
 
