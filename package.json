@@ -4,7 +4,7 @@
     "description": "StickerGroupBot",
     "main": "start.js",
     "scripts": {
-        "start": "node start.js"
+        "start": "node start.js",
         "test": "node start.js"
     },
     "repository": {
@@ -16,7 +16,7 @@
     "bugs": {
         "url": "https://github.com/gnehs/StickerGroupBot/issues"
     },
-    "homepage": "https://github.com/gnehs/StickerGroupBot#readme",
+    "homepage": "https://github.com/gnehs/StickerGroupBot",
     "dependencies": {
         "cheerio": "^1.0.0-rc.2",
         "jsonfile": "^3.0.1",
