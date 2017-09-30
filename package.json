@@ -4,7 +4,7 @@
     "description": "StickerGroupBot",
     "main": "start.js",
     "scripts": {
-        "test": "node index.js"
+        "test": "node start.js"
     },
     "repository": {
         "type": "git",
