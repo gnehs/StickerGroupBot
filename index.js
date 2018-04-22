@@ -1,5 +1,5 @@
 var TelegramBot = require('node-telegram-bot-api'),
-    token = 'BotToken:Here',
+    token = '***BotToken:Here***',
     bot = new TelegramBot(token, { polling: true });
 
 var OpenCC = require('./opencc'); //簡轉繁
