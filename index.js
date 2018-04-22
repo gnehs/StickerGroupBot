@@ -1,9 +1,8 @@
 var TelegramBot = require('node-telegram-bot-api'),
-    token = '***BotToken:Here***',
+    token = 'Token',
     bot = new TelegramBot(token, { polling: true });
 
-var OpenCC = require('./opencc'); //簡轉繁
-var opencc = new OpenCC('s2t.json');
+var chineseConv = require('chinese-conv'); //簡轉繁
 
 var group_link = "t.me/StickerGroup"; // 群組連結
 
@@ -121,7 +120,7 @@ bot.on('message', (msg) => {
     var msgtext = msg.text
     if (msg.text == undefined && msg.sticker != undefined) {
         msgtext = msg.sticker.set_name
-    } else if (msg.text == undefined && new_chat_members != undefined) {
+    } else if (msg.text == undefined && msg.new_chat_members != undefined) {
         msgtext = "新成員: @" + msg.new_chat_members.username + " " + msg.new_chat_members.first_name
     } else if (msg.text == undefined) {
         msgtext = "無法辨識之訊息"
@@ -142,8 +141,8 @@ bot.on('message', (msg) => {
         if (msg.text.toLowerCase().indexOf("ping") === 0) {
             bot.sendMessage(msg.chat.id, "<b>PONG</b>", { parse_mode: "HTML", reply_to_message_id: msg.message_id });
         }
-        if (msgText.indexOf("貼圖") > -1) {
-            if (msgText.indexOf("請問") > -1 || msgText.indexOf("求") > -1 || msgText.indexOf("有") > -1) {
+        if (msg.text.indexOf("貼圖") > -1) {
+            if (msg.text.indexOf("請問") > -1 || msgText.indexOf("求") > -1 || msgText.indexOf("有") > -1) {
                 bot.sendMessage(msg.chat.id, "詢問或發佈貼圖時請使用標籤，這樣才能被正確索引\n像是 `#詢問 #妖嬌美麗的恐龍 #會飛的`\n*＊本功能測試中，誤報請私* [@gnehs_OwO](https://t.me/gnehs_OwO) ＊", { parse_mode: "markdown", reply_to_message_id: msg.message_id, disable_web_page_preview: true });
             }
         }
@@ -156,9 +155,13 @@ bot.on('message', (msg) => {
         if (msg.text.toLowerCase().indexOf("汪") === 0) {
             bot.sendMessage(msg.chat.id, "(摸摸", { reply_to_message_id: msg.message_id });
         }
+        if (msg.text.toLowerCase().indexOf("!转繁体") > -1) {
+            var text = chineseConv.tify(msg.text);
+            bot.sendMessage(msg.chat.id, text, { reply_to_message_id: msg.message_id });
+        }
         // 辨識是否 Tag 正確
         if (msg.text.toLowerCase().indexOf("#询问") === 0) {
-            var text = opencc.convertSync(msg.text);
+            var text = chineseConv.tify(msg.text);
             bot.sendMessage(msg.chat.id, text, { reply_to_message_id: msg.message_id });
         }
         if (msg.text.toLowerCase().indexOf("#詢問#") === 0) {
