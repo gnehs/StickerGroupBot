@@ -7,8 +7,6 @@ WORKDIR /app
 COPY . /app
 # Install app dependencies
 COPY package.json /app/
-# If you have native dependencies, you'll need extra tools
-RUN apk add --no-cache make gcc g++ python
 RUN npm install --production
 
 CMD ["npm", "start"]
