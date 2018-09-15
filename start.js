@@ -16,10 +16,10 @@ if (!botData.msgtodel) {
 }
 if (!botData.tips) {
     botData.tips = [
-        '↔️ 使用 「#询问」 或 「!转繁体」 可以让传送的讯息变成繁体',
-        '🔡 如果是英文標籤，在單字間加底線\n例如：#Cute_Cat',
-        '🔍 在詢問貼圖前，可以先搜尋看看',
-        '🔞 本群禁止限制級(R18)貼圖之詢問、發佈和討論',
+        { message: '↔️ 使用 「#询问」 或 「!转繁体」 可以让传送的讯息变成繁体' },
+        { message: '🔡 如果是英文標籤，在單字間加底線\n例如：#Cute_Cat' },
+        { message: '🔍 在詢問貼圖前，可以先搜尋看看' },
+        { message: '🔞 本群禁止限制級(R18)貼圖之詢問、發佈和討論' },
     ];
     console.log('已自動建立 botData.tips')
     jsonfile.writeFileSync('botData.json', botData);
